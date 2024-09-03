@@ -85,11 +85,11 @@ async def genkey(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 save_keys()
                 response = f"Key generated: {key}\nExpires on: {expiration_date}"
             except ValueError:
-                response = "Please specify a valid number and unit of time (hours/days) script by @rishabgupta01."
+                response = "Please specify a valid number and unit of time (hours/days) buy from @rishabgupta01 ."
         else:
             response = "Usage: /genkey <amount> <hours/days>"
     else:
-        response = "ONLY OWNER CAN USE💀OWNER @rishabgupta01..."
+        response = "ONLY OWNER CAN USE💀OWNER @{OWNER_USERNAME}..."
 
     await update.message.reply_text(response)
 
@@ -110,9 +110,9 @@ async def redeem(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             save_users()
             del keys[key]
             save_keys()
-            response = f"✅Key redeemed successfully! Access granted until: {users[user_id]} OWNER- @rishabgupta01..."
+            response = f"✅Key redeemed successfully! Access granted until: {users[user_id]} OWNER- @{OWNER_USERNAME}..."
         else:
-            response = "Invalid or expired key buy from @rishabgupta01."
+            response = "Invalid or expired key buy from @{OWNER_USERNAME}."
     else:
         response = "Usage: /redeem <key>"
 
@@ -217,7 +217,7 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     response = (
-        "Welcome to the Flooding Bot by @rishabgupta01..! Here are the available commands:\n\n"
+        "Welcome to the Flooding Bot by @{OWNER_USERNAME}..! Here are the available commands:\n\n"
         "Admin Commands:\n"
         "/genkey <amount> <hours/days> - Generate a key with a specified validity period.\n"
         "/allusers - Show all authorized users.\n"
